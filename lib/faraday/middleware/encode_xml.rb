@@ -2,39 +2,52 @@
 
 module Faraday
   class Middleware
-    # This class provides the main implementation for your middleware.
-    # Your middleware can implement any of the following methods:
-    # * on_request - called when the request is being prepared
-    # * on_complete - called when the response is being processed
+    # Request middleware that encodes the body as XML.
     #
-    # Optionally, you can also override the following methods from Faraday::Middleware
-    # * initialize(app, options = {}) - the initializer method
-    # * call(env) - the main middleware invocation method.
-    #   This already calls on_request and on_complete, so you normally don't need to override it.
-    #   You may need to in case you need to "wrap" the request or need more control
-    #   (see "retry" middleware: https://github.com/lostisland/faraday/blob/main/lib/faraday/request/retry.rb#L142).
-    #   IMPORTANT: Remember to call `@app.call(env)` or `super` to not interrupt the middleware chain!
+    # Processes only requests with matching Content-type or those without a type.
+    # If a request doesn't have a type but has a body, it sets the Content-type
+    # to XML MIME-type.
+    #
+    # Doesn't try to encode bodies that already are in string form.
     class EncodeXML < Faraday::Middleware
-      # This method will be called when the request is being prepared.
-      # You can alter it as you like, accessing things like request_body, request_headers, and more.
-      # Refer to Faraday::Env for a list of accessible fields:
-      # https://github.com/lostisland/faraday/blob/main/lib/faraday/options/env.rb
-      #
-      # @param env [Faraday::Env] the environment of the request being processed
-      def on_request(env)
-        # Do something with the request environment...
-        # This method is optional.
+      CONTENT_TYPE = 'Content-Type'
+      MIME_TYPE    = 'application/xml'
+
+      dependency do
+        require 'gyoku' unless defined?(::Gyoku)
       end
 
-      # This method will be called when the response is being processed.
-      # You can alter it as you like, accessing things like response_body, response_headers, and more.
-      # Refer to Faraday::Env for a list of accessible fields:
-      # https://github.com/lostisland/faraday/blob/main/lib/faraday/options/env.rb
-      #
-      # @param env [Faraday::Env] the environment of the response being processed.
-      def on_complete(env)
-        # Do something with the response environment...
-        # This method is optional.
+      def call(env)
+        match_content_type(env) do |data|
+          env[:body] = encode data
+        end
+        @app.call env
+      end
+
+      def encode(data)
+        ::Gyoku.xml(data, key_converter: :none)
+      end
+
+      def match_content_type(env)
+        return unless process_request?(env)
+
+        env[:request_headers][CONTENT_TYPE] ||= MIME_TYPE
+        yield env[:body] unless env[:body].respond_to?(:to_str)
+      end
+
+      def process_request?(env)
+        type = request_type(env)
+        has_body?(env) && (type.empty? or type == MIME_TYPE)
+      end
+
+      def has_body?(env)
+        (body = env[:body]) && !(body.respond_to?(:to_str) && body.empty?)
+      end
+
+      def request_type(env)
+        type = env[:request_headers][CONTENT_TYPE].to_s
+        type = type.split(';', 2).first if type.index(';')
+        type
       end
     end
   end
