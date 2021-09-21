@@ -15,3 +15,6 @@ Gemfile.lock
 .ruby-version
 
 .rspec_status
+
+node_modules/
+package-lock.json
