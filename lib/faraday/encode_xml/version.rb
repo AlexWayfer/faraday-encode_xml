@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Faraday
-  module MyMiddleware
-    VERSION = '0.1.0'
+  module EncodeXML
+    VERSION = '0.0.0'
   end
 end

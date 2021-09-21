@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
-require_relative 'lib/faraday/my_middleware/version'
+require_relative 'lib/faraday/encode_xml/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'faraday-my_middleware'
-  spec.version = Faraday::MyMiddleware::VERSION
-  spec.authors = ['Your Name']
-  spec.email = ['your_name@gmail.com']
+  spec.name = 'faraday-encode_xml'
+  spec.version = Faraday::EncodeXML::VERSION
+  spec.authors = ['Alexander Popov']
+  spec.email = ['alex.wayfer@gmail.com']
 
-  spec.summary = 'Faraday middleware for MyMiddleware'
+  spec.summary = 'Faraday middleware for encoding requests as XML'
   spec.description = <<~DESC
-    Faraday middleware for MyMiddleware
+    Faraday middleware for encoding requests as XML
   DESC
   spec.license = 'MIT'
 
-  github_uri = "https://github.com/your_nickname/#{spec.name}"
+  github_uri = "https://github.com/AlexWayfer/#{spec.name}"
 
   spec.homepage = github_uri
 

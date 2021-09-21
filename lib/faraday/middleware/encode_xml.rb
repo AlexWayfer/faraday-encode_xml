@@ -14,7 +14,7 @@ module Faraday
     #   You may need to in case you need to "wrap" the request or need more control
     #   (see "retry" middleware: https://github.com/lostisland/faraday/blob/main/lib/faraday/request/retry.rb#L142).
     #   IMPORTANT: Remember to call `@app.call(env)` or `super` to not interrupt the middleware chain!
-    class MyMiddleware < Faraday::Middleware
+    class EncodeXML < Faraday::Middleware
       # This method will be called when the request is being prepared.
       # You can alter it as you like, accessing things like request_body, request_headers, and more.
       # Refer to Faraday::Env for a list of accessible fields:

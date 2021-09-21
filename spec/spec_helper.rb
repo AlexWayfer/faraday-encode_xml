@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'faraday'
-require 'faraday/my_middleware'
+require 'faraday/encode_xml'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
