@@ -14,14 +14,14 @@ module Faraday
     # * conn.use Faraday::Middleware::MyMiddleware
     # * conn.use :my_middleware
     # Without this line, only the former method is valid.
-    Faraday::Middleware.register_middleware(encode_xml: Faraday::Middleware::EncodeXML)
+    # Faraday::Middleware.register_middleware(encode_xml: Faraday::Middleware::EncodeXML)
 
     # Alternatively, you can register your middleware under Faraday::Request or Faraday::Response.
     # This will allow to load your middleware using the `request` or `response` methods respectively.
     #
     # Load middleware with conn.request :my_middleware
-    # Faraday::Request.register_middleware(my_adapter: Faraday::Middleware::MyMiddleware)
-    #
+    Faraday::Request.register_middleware(xml: Faraday::Middleware::EncodeXML)
+
     # Load middleware with conn.response :my_middleware
     # Faraday::Response.register_middleware(my_adapter: Faraday::Middleware::MyMiddleware)
   end
