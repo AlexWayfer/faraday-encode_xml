@@ -17,12 +17,19 @@ module Faraday
         require 'gyoku' unless defined?(::Gyoku)
       end
 
-      def call(env)
+      # This method will be called when the request is being prepared.
+      # You can alter it as you like, accessing things like request_body, request_headers, and more.
+      # Refer to Faraday::Env for a list of accessible fields:
+      # https://github.com/lostisland/faraday/blob/main/lib/faraday/options/env.rb
+      #
+      # @param env [Faraday::Env] the environment of the request being processed
+      def on_request(env)
         match_content_type(env) do |data|
           env[:body] = encode data
         end
-        @app.call env
       end
+
+      private
 
       def encode(data)
         ::Gyoku.xml(data, key_converter: :none)

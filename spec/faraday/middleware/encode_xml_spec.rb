@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 RSpec.describe Faraday::Middleware::EncodeXML do
-  let(:middleware) { described_class.new(->(env) { env }) }
+  let(:middleware) { described_class.new(->(env) { Faraday::Response.new(env) }) }
 
   def process(body, content_type = nil)
     env = { body: body, request_headers: Faraday::Utils::Headers.new }
     env[:request_headers]['content-type'] = content_type if content_type
-    middleware.call Faraday::Env.from(env)
+    middleware.call(Faraday::Env.from(env)).env
   end
 
   def result_body
