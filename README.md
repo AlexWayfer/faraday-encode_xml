@@ -1,5 +1,9 @@
 # Faraday Encode XML
 
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/AlexWayfer/faraday-encode_xml/ci)](https://github.com/AlexWayfer/faraday-encode_xml/actions?query=branch%3Amain)
+[![Gem](https://img.shields.io/gem/v/faraday-encode_xml.svg?style=flat-square)](https://rubygems.org/gems/faraday-encode_xml)
+[![License](https://img.shields.io/github/license/AlexWayfer/faraday-encode_xml.svg?style=flat-square)](LICENSE.md)
+
 This repo is a [Faraday][https://github.com/lostisland/faraday] middleware for encoding requests as XML.
 Faraday is an HTTP client library that provides a common interface for making requests.
 
