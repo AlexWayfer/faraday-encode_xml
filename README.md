@@ -28,7 +28,22 @@ gem install faraday-encode_xml
 ```ruby
 require 'faraday/encode_xml'
 
-# TODO
+connection = Faraday.new do |faraday|
+  ## This gem only encodes requests
+  faraday.request :xml
+
+  ## For responses deconding use `faraday_middleware` gem and such code:
+  # require 'faraday_middleware'
+  # faraday.response :xml
+
+  ## For example `httpbingo` responses as JSON, so let's enable it:
+  require 'faraday_middleware'
+  faraday.response :json
+end
+
+response = connection.post('https://httpbingo.org/post', { a: 1, b: 'foo', c: true })
+
+puts response.body['data'] ## => <a>1</a><b>foo</b><c>true</c>
 ```
 
 ## Development
