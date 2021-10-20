@@ -2,6 +2,6 @@
 
 module Faraday
   module EncodeXML
-    VERSION = '0.0.0'
+    VERSION = '0.1.0'
   end
 end
