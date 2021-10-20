@@ -46,10 +46,10 @@ module Faraday
 
       def process_request?(env)
         type = request_type(env)
-        has_body?(env) && (type.empty? or type == MIME_TYPE)
+        body?(env) && (type.empty? or type == MIME_TYPE)
       end
 
-      def has_body?(env)
+      def body?(env)
         (body = env[:body]) && !(body.respond_to?(:to_str) && body.empty?)
       end
 
