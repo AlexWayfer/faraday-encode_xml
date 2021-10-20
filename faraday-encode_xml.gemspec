@@ -35,7 +35,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'gyoku', '~> 1.3'
 
   spec.add_development_dependency 'bundler', '~> 2.0'
-  spec.add_development_dependency 'bundler-audit', '~> 0.8.0'
+  spec.add_development_dependency 'bundler-audit', '~> 0.9.0'
 
   spec.add_development_dependency 'pry-byebug', '~> 3.9'
 
@@ -45,7 +45,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'gem_toys', '~> 0.10.0'
   spec.add_development_dependency 'toys', '~> 0.12.0'
 
-  spec.add_development_dependency 'rubocop', '~> 1.21.0'
+  spec.add_development_dependency 'rubocop', '~> 1.22.0'
   spec.add_development_dependency 'rubocop-packaging', '~> 0.5'
   spec.add_development_dependency 'rubocop-performance', '~> 1.0'
   spec.add_development_dependency 'rubocop-rspec', '~> 2.0'
