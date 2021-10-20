@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
+require 'faraday'
+
 module Faraday
-  class Middleware
+  module EncodeXML
     # Request middleware that encodes the body as XML.
     #
     # Processes only requests with matching Content-type or those without a type.
@@ -9,7 +11,7 @@ module Faraday
     # to XML MIME-type.
     #
     # Doesn't try to encode bodies that already are in string form.
-    class EncodeXML < Faraday::Middleware
+    class Middleware < Faraday::Middleware
       CONTENT_TYPE = 'Content-Type'
       MIME_TYPE    = 'application/xml'
 

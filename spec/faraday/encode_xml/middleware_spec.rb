@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Faraday::Middleware::EncodeXML do
+RSpec.describe Faraday::EncodeXML::Middleware do
   let(:middleware) { described_class.new(->(env) { Faraday::Response.new(env) }) }
 
   def process(body, content_type = nil)
