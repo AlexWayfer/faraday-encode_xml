@@ -14,6 +14,10 @@ AllCops:
   TargetRubyVersion: 2.5
   SuggestExtensions: false
   NewCops: enable
+  Exclude:
+    <% `git status --ignored --porcelain`.lines.grep(/^!! /).each do |path| %>
+      - <%= path.sub(/^!! /, '') %>
+    <% end %>
 
 Metrics/BlockLength:
   Exclude:
