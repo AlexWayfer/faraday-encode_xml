@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir['lib/**/*', 'README.md', 'LICENSE.md', 'CHANGELOG.md']
 
-  spec.required_ruby_version = '>= 2.5', '< 4'
+  spec.required_ruby_version = '>= 2.6', '< 4'
 
   spec.add_runtime_dependency 'faraday', '~> 2.3'
   spec.add_runtime_dependency 'gyoku', '~> 1.3'
@@ -43,7 +43,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'simplecov', '~> 0.21.0'
 
-  spec.add_development_dependency 'gem_toys', '~> 0.11.0'
+  spec.add_development_dependency 'gem_toys', '~> 0.12.0'
   spec.add_development_dependency 'toys', '~> 0.13.0'
 
   spec.add_development_dependency 'rubocop', '~> 1.26.0'

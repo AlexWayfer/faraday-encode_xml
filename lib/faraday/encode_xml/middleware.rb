@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'faraday'
+require 'gyoku' unless defined?(::Gyoku)
 
 module Faraday
   module EncodeXML
@@ -14,10 +15,6 @@ module Faraday
     class Middleware < Faraday::Middleware
       CONTENT_TYPE = 'Content-Type'
       MIME_TYPE    = 'application/xml'
-
-      dependency do
-        require 'gyoku' unless defined?(::Gyoku)
-      end
 
       # This method will be called when the request is being prepared.
       # You can alter it as you like, accessing things like request_body, request_headers, and more.
