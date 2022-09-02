@@ -46,7 +46,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'gem_toys', '~> 0.12.0'
   spec.add_development_dependency 'toys', '~> 0.13.0'
 
-  spec.add_development_dependency 'rubocop', '~> 1.35.0'
+  spec.add_development_dependency 'rubocop', '~> 1.36.0'
   spec.add_development_dependency 'rubocop-packaging', '~> 0.5'
   spec.add_development_dependency 'rubocop-performance', '~> 1.0'
   spec.add_development_dependency 'rubocop-rspec', '~> 2.0'
