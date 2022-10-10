@@ -44,7 +44,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'simplecov', '~> 0.21.0'
 
   spec.add_development_dependency 'gem_toys', '~> 0.12.0'
-  spec.add_development_dependency 'toys', '~> 0.13.0'
+  spec.add_development_dependency 'toys', '~> 0.14.2'
 
   spec.add_development_dependency 'rubocop', '~> 1.36.0'
   spec.add_development_dependency 'rubocop-packaging', '~> 0.5'
