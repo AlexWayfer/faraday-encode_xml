@@ -83,6 +83,17 @@ rspec_task:
 
   test_script: bundle exec rspec --format=json --out=rspec.json
 
+  codecov_uploader_cache:
+    folder: codecov
+    fingerprint_script:
+      - curl --no-progress-meter https://uploader.codecov.io/latest/linux/codecov.SHA256SUM
+    populate_script:
+      - mkdir -p codecov
+      - curl https://uploader.codecov.io/latest/linux/codecov -o codecov/uploader
+      - chmod +x codecov/uploader
+
+  codecov_script: codecov/uploader
+
   always:
     rspec_artifacts:
       path: rspec.json
