@@ -1,6 +1,8 @@
 # Faraday Encode XML
 
 [![Cirrus CI - Base Branch Build Status](https://img.shields.io/cirrus/github/AlexWayfer/faraday-encode_xml?style=flat-square)](https://cirrus-ci.com/github/AlexWayfer/faraday-encode_xml)
+[![Codecov branch](https://img.shields.io/codecov/c/github/AlexWayfer/faraday-encode_xml/main.svg?style=flat-square)](https://codecov.io/gh/AlexWayfer/faraday-encode_xml)
+[![Code Climate](https://img.shields.io/codeclimate/maintainability/AlexWayfer/faraday-encode_xml.svg?style=flat-square)](https://codeclimate.com/github/AlexWayfer/faraday-encode_xml)
 [![Depfu](https://img.shields.io/depfu/AlexWayfer/faraday-encode_xml?style=flat-square)](https://depfu.com/repos/github/AlexWayfer/faraday-encode_xml)
 [![Gem](https://img.shields.io/gem/v/faraday-encode_xml.svg?style=flat-square)](https://rubygems.org/gems/faraday-encode_xml)
 [![License](https://img.shields.io/github/license/AlexWayfer/faraday-encode_xml.svg?style=flat-square)](LICENSE.txt)
