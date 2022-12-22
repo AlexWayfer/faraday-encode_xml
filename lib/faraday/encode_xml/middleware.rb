@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'faraday'
-require 'gyoku' unless defined?(::Gyoku)
+require 'gyoku' unless defined?(Gyoku)
 
 module Faraday
   module EncodeXML
