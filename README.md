@@ -53,6 +53,19 @@ response = connection.post('https://httpbingo.org/post', { a: 1, b: 'foo', c: tr
 puts response.body['data'] ## => <a>1</a><b>foo</b><c>true</c>
 ```
 
+### Gyoku options
+
+The middleware uses [`gyoku` gem](https://rubygems.org/gems/gyoku) for XML encoding.
+
+You can pass options for it:
+
+```ruby
+connection = Faraday.new do |faraday|
+  ## https://www.rubydoc.info/gems/gyoku/#array-values
+  faraday.request :xml, gyoku_options: { unwrap: true }
+end
+```
+
 ## Development
 
 After checking out the repo, run `bundle install` to install dependencies.
