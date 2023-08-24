@@ -15,6 +15,7 @@ module Faraday
     class Middleware < Faraday::Middleware
       CONTENT_TYPE = 'Content-Type'
       MIME_TYPE    = 'application/xml'
+      DEFAULT_GYOKU_OPTIONS = { key_converter: :none }.freeze
 
       # This method will be called when the request is being prepared.
       # You can alter it as you like, accessing things like request_body, request_headers, and more.
@@ -31,7 +32,8 @@ module Faraday
       private
 
       def encode(data)
-        ::Gyoku.xml(data, key_converter: :none)
+        gyoku_options = DEFAULT_GYOKU_OPTIONS.merge(options.fetch(:gyoku_options, {}))
+        ::Gyoku.xml(data, gyoku_options)
       end
 
       def match_content_type(env)

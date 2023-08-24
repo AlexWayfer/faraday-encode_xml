@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 RSpec.describe Faraday::EncodeXML::Middleware do
-  let(:middleware) { described_class.new(->(env) { Faraday::Response.new(env) }) }
+  let(:middleware) { described_class.new(->(env) { Faraday::Response.new(env) }, **options) }
+
+  let(:options) { {} }
 
   def process(body, content_type = nil)
     env = { body: body, request_headers: Faraday::Utils::Headers.new }
@@ -74,6 +76,28 @@ RSpec.describe Faraday::EncodeXML::Middleware do
 
     it 'adds content type' do
       expect(result_type).to eq('application/xml')
+    end
+  end
+
+  context 'with array of objects in container body' do
+    let(:result) { process(a: [{ b: 1 }, { b: 2 }]) }
+
+    it 'adds content type' do
+      expect(result_type).to eq('application/xml')
+    end
+
+    context 'without additional options' do
+      it 'encodes body' do
+        expect(result_body).to eq('<a><b>1</b></a><a><b>2</b></a>')
+      end
+    end
+
+    context 'with additional `unwrap` option' do
+      let(:options) { { gyoku_options: { unwrap: true } } }
+
+      it 'encodes body' do
+        expect(result_body).to eq('<a><b>1</b><b>2</b></a>')
+      end
     end
   end
 
