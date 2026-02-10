@@ -1,4 +1,4 @@
-require:
+plugins:
   - rubocop-packaging
   - rubocop-performance
   - rubocop-rspec
@@ -37,6 +37,6 @@ Style/Documentation:
   Exclude:
     - 'spec/**/*'
 
-Naming/PredicateName:
+Naming/PredicatePrefix:
   Exclude:
     - 'lib/faraday/middleware/encode_xml.rb'
