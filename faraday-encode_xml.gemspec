@@ -30,8 +30,8 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir['lib/**/*', 'README.md', 'LICENSE.md', 'CHANGELOG.md']
 
-  spec.required_ruby_version = '>= 3.0', '< 4'
+  spec.required_ruby_version = '>= 3.2', '< 5'
 
-  spec.add_runtime_dependency 'faraday', '~> 2.9.0'
-  spec.add_runtime_dependency 'gyoku', '~> 1.3'
+  spec.add_dependency 'faraday', '~> 2.14.0'
+  spec.add_dependency 'gyoku', '~> 1.3'
 end

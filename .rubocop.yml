@@ -1,4 +1,4 @@
-require:
+plugins:
   - rubocop-packaging
   - rubocop-performance
   - rubocop-rspec
@@ -11,7 +11,7 @@ inherit_mode:
 AllCops:
   DisplayCopNames: true
   DisplayStyleGuide: true
-  TargetRubyVersion: 3.0
+  TargetRubyVersion: 3.2
   SuggestExtensions: false
   NewCops: enable
   Exclude:
@@ -37,6 +37,6 @@ Style/Documentation:
   Exclude:
     - 'spec/**/*'
 
-Naming/PredicateName:
+Naming/PredicatePrefix:
   Exclude:
     - 'lib/faraday/middleware/encode_xml.rb'
