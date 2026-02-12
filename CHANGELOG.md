@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## 2.0.0 (2026-02-13)
+
+*   Drop Ruby 2.6, 2.7, 3.0 and 3.1 support.
+*   Add Ruby 3.2, 3.3, 3.4 and 4.0 support.
+*   Add ability to pass options for Gyoku.
+    It can be very helpful.
+*   Update dependencies.
+*   Improve CI config.
+
 ## 1.0.0 (2022-11-19)
 
 *   Update Faraday to version 2.
